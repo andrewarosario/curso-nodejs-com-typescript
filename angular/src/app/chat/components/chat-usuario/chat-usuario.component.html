@@ -1,0 +1,10 @@
+<mat-list-item
+  [routerLink]="usuario._id"
+  routerLinkActive="mat-app-background"
+  >
+  <img matListAvatar [src]="usuario.avatar">
+  <h2 matLine> {{usuario.nome}} </h2>
+  <p matLine>
+    <span> {{ usuario.ultimaMensagem || 'Não há mensagens'}}</span>
+  </p>
+</mat-list-item>

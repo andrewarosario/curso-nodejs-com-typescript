@@ -1,0 +1,17 @@
+<div class="mensagem-container">
+
+  <div class="avatar-container" [style.order]="mensagem.isRemetente ? 1 : 0">
+    <img [src]="mensagem.isRemetente ? avatarUsuarioLogado : avatarUsuarioChat"/>
+  </div>
+
+  <div class="texto-container" [ngClass]="{'remetente-container': mensagem.isRemetente}">
+    <i class="seta" [ngClass]="{
+      'seta-esquerda': !mensagem.isRemetente,
+      'seta-direita': mensagem.isRemetente
+    }"></i>
+      <span class="texto">{{ mensagem.texto }}</span>
+      <span class="data-hora">
+        <small>{{ mensagem.createdAt | date: 'dd/MM/yyyy hh:mm:ss' }}</small>
+      </span>
+  </div>
+</div>

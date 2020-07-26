@@ -1,0 +1,24 @@
+<section #content class="content" *ngIf="usuarioChat$ | async as usuarioChat">
+
+  <app-chat-usuario-mensagem *ngFor="let mensagem of mensagens$ | async"
+    [mensagem]="mensagem"
+    [avatarUsuarioLogado]="usuarioLogado.avatar"
+    [avatarUsuarioChat]="usuarioChat.avatar"
+  >
+  </app-chat-usuario-mensagem>
+
+</section>
+
+<mat-toolbar class="footer" color="primary">
+  <mat-toolbar-row>
+    <input class="input"
+           [formControl]="mensagem"
+           (keyup.enter)="enviarMensagem()"
+           type="text"
+           placeholder="Digite uma mensagem...">
+
+    <button mat-icon-button (click)="enviarMensagem()">
+      <mat-icon>send</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

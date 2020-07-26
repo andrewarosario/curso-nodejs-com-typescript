@@ -1,0 +1,23 @@
+<mat-sidenav-container class="example-container">
+
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    [opened]="true"
+    class="example-sidenav"
+    [fixedInViewport]="false"
+    [fixedTopGap]="0"
+    [fixedBottomGap]="0">
+
+    <mat-list>
+      <app-chat-usuario
+        *ngFor="let usuario of usuarios$ | async"
+        [usuario]="usuario"
+      ></app-chat-usuario>
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
